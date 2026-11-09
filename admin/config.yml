@@ -1,0 +1,83 @@
+backend:
+  name: git-gateway            # либо см. раздел «Аутентификация»
+  branch: main                 # ваша основная ветка (main или master)
+
+locale: ru
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "site"
+    label: "Сайт"
+    files:
+      - name: "content"
+        label: "Контент и цены"
+        file: "content/site.json"
+        fields:
+          # HERO
+          - { label: "Hero — Заголовок",    name: "hero",   widget: "object", fields: [
+              { label: "Заголовок",        name: "title",      widget: "string" },
+              { label: "Подзаголовок",     name: "subtitle",   widget: "string" },
+              { label: "Текст кнопки",     name: "buttonText", widget: "string" },
+              { label: "Ссылка кнопки",    name: "buttonLink", widget: "string" }
+            ]}
+
+          # ABOUT
+          - { label: "О салоне", name: "about", widget: "object", fields: [
+              { label: "Метка",             name: "label",         widget: "string" },
+              { label: "Заголовок",         name: "title",         widget: "string" },
+              { label: "Курсивный подзаг.", name: "titleItalic",   widget: "string" },
+              { label: "Абзац 1",           name: "paragraph1",    widget: "text" },
+              { label: "Абзац 2",           name: "paragraph2",    widget: "text" },
+              { label: "Фото",              name: "image",         widget: "image", required: false }
+            ]}
+
+          # SERVICES
+          - { label: "Услуги", name: "services", widget: "list", fields: [
+              { label: "Название",  name: "name",        widget: "string" },
+              { label: "Описание",  name: "description", widget: "text" },
+              { label: "Цена/время", name: "price",      widget: "string" }
+            ]}
+
+          - { label: "Блок под услугами", name: "servicesFooter", widget: "object", fields: [
+              { label: "Примечание",          name: "note",           widget: "text" },
+              { label: "Текст кнопки прайса", name: "priceListText",  widget: "string" },
+              { label: "Ссылка на прайс",     name: "priceListLink",  widget: "string" }
+            ]}
+
+          # GALLERY
+          - { label: "Галерея", name: "gallery", widget: "list", field: { label: "Фото", name: "image", widget: "image" } }
+
+          # BEFORE / AFTER
+          - { label: "До / После", name: "beforeAfter", widget: "list", fields: [
+              { label: "Фото", name: "src", widget: "image" },
+              { label: "Alt",  name: "alt", widget: "string", required: false }
+            ]}
+
+          # CONTACTS
+          - { label: "Контакты", name: "contacts", widget: "object", fields: [
+              { label: "Метка",     name: "label",       widget: "string" },
+              { label: "Заголовок", name: "title",       widget: "string" },
+              { label: "Курсив",    name: "titleItalic", widget: "string" },
+              { label: "Адреса", name: "addresses", widget: "list", fields: [
+                  { label: "Адрес",  name: "text",  widget: "string" },
+                  { label: "Метро",  name: "metro", widget: "string" }
+                ]},
+              { label: "Телефоны", name: "phones", widget: "list", field: { label: "Телефон", name: "phone", widget: "string" } },
+              { label: "Email",     name: "email",       widget: "string" },
+              { label: "Текст кнопки", name: "buttonText", widget: "string" },
+              { label: "Ссылка кнопки", name: "buttonLink", widget: "string" },
+              { label: "Соцсети", name: "socialLinks", widget: "list", fields: [
+                  { label: "Название", name: "name", widget: "string" },
+                  { label: "Ссылка",   name: "url",  widget: "string" }
+                ]},
+              { label: "Дисклеймер Meta", name: "metaDisclaimer", widget: "text" }
+            ]}
+
+          # FOOTER
+          - { label: "Подвал", name: "footer", widget: "object", fields: [
+              { label: "Копирайт",          name: "copyright",   widget: "string" },
+              { label: "Ссылка на политику", name: "privacyLink", widget: "string" },
+              { label: "Бренд",             name: "brand",       widget: "string" }
+            ]}
