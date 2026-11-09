@@ -1,83 +1,168 @@
+# ─────────────────────────────────────────────────────────────
+#  Decap CMS · KeratinNow
+#  Админка: https://keratinnow.netlify.app/admin/
+# ─────────────────────────────────────────────────────────────
+
 backend:
-  name: git-gateway            # либо см. раздел «Аутентификация»
-  branch: main                 # ваша основная ветка (main или master)
+  name: git-gateway
+  branch: main            # ← если основная ветка называется master, поменяйте здесь
+
+  # Альтернатива без Netlify Identity (клиентке понадобится аккаунт GitHub
+  # с доступом к репозиторию + OAuth-провайдер GitHub в настройках Netlify):
+  # name: github
+  # repo: ВАШ_ЛОГИН/ВАШ_РЕПОЗИТОРИЙ
+  # branch: main
 
 locale: ru
+site_url: https://keratinnow.netlify.app
+display_url: https://keratinnow.netlify.app
+logo_url: https://keratinnow.netlify.app/images/IMG_4459.png
 
-media_folder: "images"
-public_folder: "/images"
+# Куда загружаются новые фото и файлы
+media_folder: images
+public_folder: images
 
 collections:
-  - name: "site"
-    label: "Сайт"
+  - name: site
+    label: Содержимое сайта
+    editor:
+      preview: false
     files:
-      - name: "content"
-        label: "Контент и цены"
-        file: "content/site.json"
+
+      # ── ГЛАВНЫЙ ЭКРАН ───────────────────────────────────────
+      - name: hero
+        label: Главный экран
+        file: content/hero.json
         fields:
-          # HERO
-          - { label: "Hero — Заголовок",    name: "hero",   widget: "object", fields: [
-              { label: "Заголовок",        name: "title",      widget: "string" },
-              { label: "Подзаголовок",     name: "subtitle",   widget: "string" },
-              { label: "Текст кнопки",     name: "buttonText", widget: "string" },
-              { label: "Ссылка кнопки",    name: "buttonLink", widget: "string" }
-            ]}
+          - { label: "Заголовок", name: title, widget: string }
+          - { label: "Подзаголовок", name: subtitle, widget: string }
+          - { label: "Текст кнопки", name: button_text, widget: string }
+          - label: "Ссылка на онлайн-запись"
+            name: booking_url
+            widget: string
+            hint: "Полная ссылка, начиная с https://"
 
-          # ABOUT
-          - { label: "О салоне", name: "about", widget: "object", fields: [
-              { label: "Метка",             name: "label",         widget: "string" },
-              { label: "Заголовок",         name: "title",         widget: "string" },
-              { label: "Курсивный подзаг.", name: "titleItalic",   widget: "string" },
-              { label: "Абзац 1",           name: "paragraph1",    widget: "text" },
-              { label: "Абзац 2",           name: "paragraph2",    widget: "text" },
-              { label: "Фото",              name: "image",         widget: "image", required: false }
-            ]}
+      # ── О САЛОНЕ ────────────────────────────────────────────
+      - name: about
+        label: О салоне
+        file: content/about.json
+        fields:
+          - { label: "Метка раздела", name: label, widget: string }
+          - { label: "Заголовок — первая строка", name: title_line1, widget: string }
+          - { label: "Заголовок — вторая строка (курсив)", name: title_line2, widget: string }
+          - label: "Текст"
+            name: paragraphs
+            widget: list
+            label_singular: "абзац"
+            field: { label: "Абзац", name: text, widget: text }
+          - label: "Фото справа"
+            name: image
+            widget: image
+            hint: "Вертикальное фото (примерно 3:4). На телефонах не показывается."
 
-          # SERVICES
-          - { label: "Услуги", name: "services", widget: "list", fields: [
-              { label: "Название",  name: "name",        widget: "string" },
-              { label: "Описание",  name: "description", widget: "text" },
-              { label: "Цена/время", name: "price",      widget: "string" }
-            ]}
+      # ── УСЛУГИ И ЦЕНЫ ───────────────────────────────────────
+      - name: services
+        label: Услуги и цены
+        file: content/services.json
+        fields:
+          - { label: "Заголовок — первая строка", name: title_line1, widget: string }
+          - { label: "Заголовок — вторая строка (курсив)", name: title_line2, widget: string }
+          - label: "Услуги"
+            name: items
+            widget: list
+            label_singular: "услугу"
+            summary: "{{fields.name}} — {{fields.price}}"
+            hint: "Порядок можно менять перетаскиванием. Номера 01, 02… проставляются сами."
+            fields:
+              - { label: "Название", name: name, widget: string }
+              - { label: "Описание", name: desc, widget: text }
+              - { label: "Длительность", name: duration, widget: string, required: false, hint: "Например: 2 ч 30 мин" }
+              - { label: "Цена", name: price, widget: string, hint: "Например: 3 500 ₽" }
+          - { label: "Текст под списком услуг", name: note, widget: text }
+          - { label: "Текст кнопки прайс-листа", name: price_button_text, widget: string }
+          - label: "Файл прайс-листа (PDF)"
+            name: price_file
+            widget: file
+            allow_multiple: false
 
-          - { label: "Блок под услугами", name: "servicesFooter", widget: "object", fields: [
-              { label: "Примечание",          name: "note",           widget: "text" },
-              { label: "Текст кнопки прайса", name: "priceListText",  widget: "string" },
-              { label: "Ссылка на прайс",     name: "priceListLink",  widget: "string" }
-            ]}
+      # ── ГАЛЕРЕЯ ─────────────────────────────────────────────
+      - name: gallery
+        label: Галерея «Наши работы»
+        file: content/gallery.json
+        fields:
+          - { label: "Заголовок — первая строка", name: title_line1, widget: string }
+          - { label: "Заголовок — вторая строка (курсив)", name: title_line2, widget: string }
+          - label: "Фотографии"
+            name: images
+            widget: list
+            label_singular: "фото"
+            hint: "Первое фото показывается крупно. Лучше всего смотрится 7 фото."
+            field: { label: "Фото", name: image, widget: image }
 
-          # GALLERY
-          - { label: "Галерея", name: "gallery", widget: "list", field: { label: "Фото", name: "image", widget: "image" } }
+      # ── ДО / ПОСЛЕ ──────────────────────────────────────────
+      - name: before_after
+        label: До / После
+        file: content/before_after.json
+        fields:
+          - { label: "Заголовок — начало", name: title_line1, widget: string }
+          - { label: "Заголовок — окончание (курсив)", name: title_line2, widget: string }
+          - { label: "Подпись «до»", name: label_before, widget: string }
+          - { label: "Подпись «после»", name: label_after, widget: string }
+          - label: "Фотографии"
+            name: items
+            widget: list
+            label_singular: "фото"
+            hint: "Горизонтальные фото 16:9, слева «до», справа «после»."
+            fields:
+              - { label: "Фото", name: image, widget: image }
+              - { label: "Описание для поисковиков", name: alt, widget: string, required: false }
 
-          # BEFORE / AFTER
-          - { label: "До / После", name: "beforeAfter", widget: "list", fields: [
-              { label: "Фото", name: "src", widget: "image" },
-              { label: "Alt",  name: "alt", widget: "string", required: false }
-            ]}
+      # ── КОНТАКТЫ ────────────────────────────────────────────
+      - name: contacts
+        label: Контакты и соцсети
+        file: content/contacts.json
+        fields:
+          - { label: "Метка раздела", name: label, widget: string }
+          - { label: "Заголовок — первая строка", name: title_line1, widget: string }
+          - { label: "Заголовок — вторая строка (курсив)", name: title_line2, widget: string }
+          - label: "Адреса"
+            name: addresses
+            widget: list
+            label_singular: "адрес"
+            summary: "{{fields.address}}"
+            fields:
+              - { label: "Адрес", name: address, widget: string }
+              - { label: "Метро", name: metro, widget: string, required: false }
+          - label: "Телефоны"
+            name: phones
+            widget: list
+            label_singular: "телефон"
+            field: { label: "Телефон", name: phone, widget: string, hint: "Например: +7 (981) 919-05-67" }
+          - { label: "Почта", name: email, widget: string }
+          - { label: "Текст кнопки записи", name: button_text, widget: string }
+          - { label: "Ссылка на онлайн-запись", name: booking_url, widget: string }
+          - label: "Соцсети и мессенджеры"
+            name: socials
+            widget: list
+            label_singular: "ссылку"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Название", name: name, widget: string }
+              - { label: "Ссылка", name: url, widget: string }
+          - { label: "Примечание под соцсетями", name: socials_note, widget: text, required: false }
 
-          # CONTACTS
-          - { label: "Контакты", name: "contacts", widget: "object", fields: [
-              { label: "Метка",     name: "label",       widget: "string" },
-              { label: "Заголовок", name: "title",       widget: "string" },
-              { label: "Курсив",    name: "titleItalic", widget: "string" },
-              { label: "Адреса", name: "addresses", widget: "list", fields: [
-                  { label: "Адрес",  name: "text",  widget: "string" },
-                  { label: "Метро",  name: "metro", widget: "string" }
-                ]},
-              { label: "Телефоны", name: "phones", widget: "list", field: { label: "Телефон", name: "phone", widget: "string" } },
-              { label: "Email",     name: "email",       widget: "string" },
-              { label: "Текст кнопки", name: "buttonText", widget: "string" },
-              { label: "Ссылка кнопки", name: "buttonLink", widget: "string" },
-              { label: "Соцсети", name: "socialLinks", widget: "list", fields: [
-                  { label: "Название", name: "name", widget: "string" },
-                  { label: "Ссылка",   name: "url",  widget: "string" }
-                ]},
-              { label: "Дисклеймер Meta", name: "metaDisclaimer", widget: "text" }
-            ]}
-
-          # FOOTER
-          - { label: "Подвал", name: "footer", widget: "object", fields: [
-              { label: "Копирайт",          name: "copyright",   widget: "string" },
-              { label: "Ссылка на политику", name: "privacyLink", widget: "string" },
-              { label: "Бренд",             name: "brand",       widget: "string" }
-            ]}
+      # ── ОБЩЕЕ И SEO ─────────────────────────────────────────
+      - name: general
+        label: Общие настройки и SEO
+        file: content/general.json
+        fields:
+          - { label: "Заголовок вкладки браузера", name: title, widget: string }
+          - { label: "Описание для поисковиков", name: description, widget: text }
+          - { label: "Описание для превью в мессенджерах", name: og_description, widget: text }
+          - label: "Картинка превью в мессенджерах"
+            name: og_image
+            widget: image
+            hint: "Рекомендуемый размер 1200×630"
+          - { label: "Адрес сайта", name: site_url, widget: string, hint: "Без слеша в конце" }
+          - { label: "Название в подвале", name: footer_name, widget: string }
+          - { label: "Текст копирайта", name: footer_copy, widget: string, hint: "Год подставляется автоматически" }

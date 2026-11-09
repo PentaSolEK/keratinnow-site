@@ -1,0 +1,23 @@
+{
+  "label": "/ контакты",
+  "title_line1": "давайте",
+  "title_line2": "знакомиться",
+  "addresses": [
+    { "address": "Санкт-Петербург, 8-ая Красноармейская, 21Б", "metro": "м. Балтийская / Технологический институт" },
+    { "address": "Санкт-Петербург, Клинский проспект, 23", "metro": "м. Технологический институт" }
+  ],
+  "phones": [
+    "+7 (981) 919-05-67",
+    "+7 (981) 936-86-58"
+  ],
+  "email": "keratinnow@yandex.ru",
+  "button_text": "Записаться онлайн",
+  "booking_url": "https://n2712339.yclients.ru/select-city/1/select-branch?o=",
+  "socials": [
+    { "name": "Media*", "url": "https://www.instagram.com/keratinnow?igsh=eWEzZ21oeXJvNTJm" },
+    { "name": "Telegram", "url": "https://t.me/keratinnow" },
+    { "name": "Message*", "url": "https://wa.me/79819368658" },
+    { "name": "ВКонтакте", "url": "https://vk.ru/keratinnowspb" }
+  ],
+  "socials_note": "* — принадлежит компании Meta, признанной экстремистской организацией и запрещённой в РФ."
+}

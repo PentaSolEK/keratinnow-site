@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KeratinNow · hair salon</title>
-<meta name="description" content="KeratinNow — профессиональный салон кератинового ухода в Санкт-Петербурге. Кератиновое выпрямление, нанопластика, биксипластия, коллагенирование.">
-<meta property="og:title" content="KeratinNow · hair salon">
-<meta property="og:description" content="KeratinNow — профессиональный салон кератинового ухода в Санкт-Петербурге. Кератиновое выпрямление, нанопластика, биксипластия.">
-<meta property="og:image" content="https://keratinnow.netlify.app/images/IMG_4459.png">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{og_description}}">
+<meta property="og:image" content="{{og_image_abs}}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://keratinnow.netlify.app/">
+<meta property="og:url" content="{{site_url}}/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://keratinnow.netlify.app/images/IMG_4459.png">
+<meta name="twitter:image" content="{{og_image_abs}}">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232a2724' rx='4'/><text x='1' y='26' font-family='Georgia,serif' font-size='24' font-weight='700' fill='white'>K</text><text x='17' y='22' font-family='Georgia,serif' font-size='16' font-weight='400' fill='%23c8b89a'>N</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -759,217 +759,95 @@
 
 <section class="hero">
   <div class="hero-text">
-    <h1 class="hero-title">KeratinNow</h1>
-    <p class="hero-sub">hair salon · Санкт-Петербург</p>
-    <a href="https://n2712339.yclients.ru/" target="_blank" class="btn">Записаться онлайн</a>
+    <h1 class="hero-title">{{hero_title}}</h1>
+    <p class="hero-sub">{{hero_subtitle}}</p>
+    <a href="{{hero_booking_url}}" target="_blank" rel="noopener" class="btn">{{hero_button_text}}</a>
   </div>
 </section>
 
 <section class="about" id="about">
   <div class="about-left">
-    <p class="section-label">/ о салоне</p>
-    <h2 class="about-title">красота волос —<br><em>наша специализация</em></h2>
-    <p class="about-text">KeratinNow — профессиональный салон кератинового ухода в Санкт-Петербурге. Мы специализируемся на восстановлении и выпрямлении волос с использованием только сертифицированных составов мировых брендов.</p>
-    <br>
-    <p class="about-text">Каждая процедура подбирается индивидуально: с учётом типа волос, их состояния и желаемого результата. Вы уйдёте с гладкими, живыми волосами и сохраните эффект на 3–6 месяцев.</p>
+    <p class="section-label">{{about_label}}</p>
+    <h2 class="about-title">{{about_title_line1}}<br><em>{{about_title_line2}}</em></h2>
+{{ABOUT_PARAGRAPHS}}
   </div>
   <div class="about-right">
-    <div class="about-visual" style="background-image: url('images/photo_2026-04-14_13-15-57.jpg');">
+    <div class="about-visual" style="background-image: url('{{about_image}}');">
     </div>
   </div>
 </section>
 
 <section class="services" id="services">
   <div class="services-header">
-    <h2 class="services-title">наши<br><em>услуги</em></h2>
+    <h2 class="services-title">{{services_title_line1}}<br><em>{{services_title_line2}}</em></h2>
   </div>
   <div class="services-grid">
-
-    <div class="service-item">
-      <div class="service-item-header">
-        <div class="service-item-header-left">
-          <p class="service-num">01</p>
-          <h3 class="service-name">Коллагенирование</h3>
-        </div>
-        <svg class="service-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="service-body">
-        <p class="service-desc">Глубокое восстановление структуры волоса. Возвращает мягкость, блеск и эластичность.</p>
-        <p class="service-price">2 ч · 3 500 ₽</p>
-      </div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-item-header">
-        <div class="service-item-header-left">
-          <p class="service-num">02</p>
-          <h3 class="service-name">Органопластика</h3>
-        </div>
-        <svg class="service-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="service-body">
-        <p class="service-desc">Кератин + ботокс — двойное действие: выпрямление и глубокое питание волоса.</p>
-        <p class="service-price">2 ч · 3 500 ₽</p>
-      </div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-item-header">
-        <div class="service-item-header-left">
-          <p class="service-num">03</p>
-          <h3 class="service-name">Тотальная реконструкция</h3>
-        </div>
-        <svg class="service-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="service-body">
-        <p class="service-desc">Максимальное восстановление повреждённых и ослабленных волос. Стойкий результат.</p>
-        <p class="service-price">3 ч · 5 700 ₽</p>
-      </div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-item-header">
-        <div class="service-item-header-left">
-          <p class="service-num">04</p>
-          <h3 class="service-name">Нанопластика</h3>
-        </div>
-        <svg class="service-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="service-body">
-        <p class="service-desc">Деликатное выпрямление с нанокератином. Без формальдегида, подходит для чувствительных волос.</p>
-        <p class="service-price">2 ч 30 мин · 4 700 ₽</p>
-      </div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-item-header">
-        <div class="service-item-header-left">
-          <p class="service-num">05</p>
-          <h3 class="service-name">Биксипластия</h3>
-        </div>
-        <svg class="service-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="service-body">
-        <p class="service-desc">Лёгкое разглаживание и увлажнение — идеально для поддержания эффекта между процедурами.</p>
-        <p class="service-price">2 ч · 3 000 ₽</p>
-      </div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-item-header">
-        <div class="service-item-header-left">
-          <p class="service-num">06</p>
-          <h3 class="service-name">Кератиновое выпрямление</h3>
-        </div>
-        <svg class="service-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="service-body">
-        <p class="service-desc">Классическое кератиновое выпрямление — гладкость и блеск на 3–5 месяцев.</p>
-        <p class="service-price">2 ч · 3 000 ₽</p>
-      </div>
-    </div>
-
+{{SERVICES}}
   </div>
 
   <div style="margin-top:48px;text-align:center;">
     <p style="font-size:13px;letter-spacing:0.12em;color:var(--gray);margin-bottom:24px;">
-      Полный перечень услуг и точную стоимость вы можете уточнить при записи —
-      цена указана за любую длину.
+      {{services_note}}
     </p>
-    <a href="price.pdf" target="_blank"
+    <a href="{{price_file}}" target="_blank"
        style="display:inline-block;padding:13px 36px;border:1px solid var(--black);color:var(--black);
               text-decoration:none;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
               transition:background .3s,color .3s;"
        onmouseover="this.style.background='var(--black)';this.style.color='var(--white)'"
        onmouseout="this.style.background='';this.style.color='var(--black)'">
-      Прайс-лист
+      {{price_button_text}}
     </a>
   </div>
 </section>
 
 
 <section class="gallery" id="gallery">
-  <h2 class="gallery-title">наши<br><em>работы</em></h2>
+  <h2 class="gallery-title">{{gallery_title_line1}}<br><em>{{gallery_title_line2}}</em></h2>
   <div class="gallery-grid">
-    <div class="gallery-item"><div class="gallery-inner" style="background-image:url('images/photo_2026-04-14_13-16-07.jpg');"></div></div>
-    <div class="gallery-item"><div class="gallery-inner" style="background-image:url('images/на_замену.jpg');"></div></div>
-    <div class="gallery-item"><div class="gallery-inner" style="background-image:url('images/photo_2026-04-14_13-16-12.jpg');"></div></div>
-    <div class="gallery-item"><div class="gallery-inner" style="background-image:url('images/photo_2026-04-14_13-16-14.jpg');"></div></div>
-    <div class="gallery-item"><div class="gallery-inner" style="background-image:url('images/photo_2026-04-14_13-16-17.jpg');"></div></div>
-    <div class="gallery-item"><div class="gallery-inner" style="background-image:url('images/IMG_4035.jpg');"></div></div>
-    <div class="gallery-item"><div class="gallery-inner" style="background-image:url('images/IMG_4036.jpg');"></div></div>
+{{GALLERY}}
   </div>
 </section>
 
 
 <!-- BEFORE / AFTER -->
 <section class="before-after" id="before-after">
-  <h2 class="before-after-title">до/<em>после</em></h2>
+  <h2 class="before-after-title">{{ba_title_line1}}<em>{{ba_title_line2}}</em></h2>
   <div class="before-after-grid">
-    <div class="ba-card">
-      <img src="images/before_after_1.jpg" alt="До и после — KeratinNow">
-      <div class="ba-label"><span>до</span><span>после</span></div>
-    </div>
-    <div class="ba-card">
-      <img src="images/before_after_2.jpg" alt="До и после — KeratinNow">
-      <div class="ba-label"><span>до</span><span>после</span></div>
-    </div>
-    <div class="ba-card">
-      <img src="images/before_after_3.jpg" alt="До и после — KeratinNow">
-      <div class="ba-label"><span>до</span><span>после</span></div>
-    </div>
+{{BEFORE_AFTER}}
   </div>
 </section>
 
 <section class="contacts" id="contacts">
   <div class="contacts-left">
-    <p class="contacts-label">/ контакты</p>
-    <h2 class="contacts-title">давайте<br><em>знакомиться</em></h2>
+    <p class="contacts-label">{{contacts_label}}</p>
+    <h2 class="contacts-title">{{contacts_title_line1}}<br><em>{{contacts_title_line2}}</em></h2>
     <div class="contact-row">
       <div class="contact-item">
         <span class="contact-key">адреса</span>
-        <span class="contact-val">Санкт-Петербург, 8-ая Красноармейская, 21Б<br><small style="font-size:12px;opacity:.7;">м. Балтийская / Технологический институт</small></span>
-	<span class="contact-val">Санкт-Петербург, Клинский проспект, 23<br><small style="font-size:12px;opacity:.7;">м. Технологический институт</small></span>
-
+{{ADDRESSES}}
       </div>
       <div class="contact-item">
         <span class="contact-key">телефон</span>
-        <a href="tel:+79819190567" class="contact-val">+7 (981) 919-05-67</a>
-        <a href="tel:+79819368658" class="contact-val" style="margin-top:6px;">+7 (981) 936-86-58</a>
+{{PHONES}}
       </div>
       <div class="contact-item">
         <span class="contact-key">почта</span>
-        <a href="mailto:keratinnow@yandex.ru" class="contact-val">keratinnow@yandex.ru</a>
+        <a href="mailto:{{email}}" class="contact-val">{{email}}</a>
       </div>
     </div>
-    <a href="https://n2712339.yclients.ru/select-city/1/select-branch?o=" target="_blank" class="btn" style="background:var(--white);color:var(--black);">Записаться онлайн</a>
+    <a href="{{contacts_booking_url}}" target="_blank" rel="noopener" class="btn" style="background:var(--white);color:var(--black);">{{contacts_button_text}}</a>
   </div>
   <div class="contacts-right">
     <div class="social-links">
-      <a href="https://www.instagram.com/keratinnow?igsh=eWEzZ21oeXJvNTJm" target="_blank" class="social-link">
-        <span class="social-name">Media*</span>
-        <span class="social-arr">↗</span>
-      </a>
-      <a href="https://t.me/keratinnow" target="_blank" class="social-link">
-        <span class="social-name">Telegram</span>
-        <span class="social-arr">↗</span>
-      </a>
-      <a href="https://wa.me/79819368658" target="_blank" class="social-link">
-        <span class="social-name">Message*</span>
-        <span class="social-arr">↗</span>
-      </a>
-      <a href="https://vk.ru/keratinnowspb" target="_blank" class="social-link">
-        <span class="social-name">ВКонтакте</span>
-        <span class="social-arr">↗</span>
-      </a>
+{{SOCIALS}}
     </div>
-    <p style="margin-top:18px;font-size:11px;opacity:.55;line-height:1.5;">* — принадлежит компании Meta, признанной экстремистской организацией и запрещённой в РФ.</p>
+{{SOCIALS_NOTE}}
   </div>
 </section>
 
 <footer>
-  <span class="footer-copy">© 2026 KeratinNow. Все права защищены. · <a href="privacy.html" style="color:inherit;text-decoration:underline;opacity:.8;">Политика конфиденциальности</a></span>
-  <span class="footer-name">KeratinNow</span>
+  <span class="footer-copy">© {{year}} {{footer_copy}} · <a href="privacy.html" style="color:inherit;text-decoration:underline;opacity:.8;">Политика конфиденциальности</a></span>
+  <span class="footer-name">{{footer_name}}</span>
 </footer>
 
 <!-- COOKIE BANNER -->
@@ -985,7 +863,6 @@
   font-weight:300;
   font-size:14px;
   color:#333;
-  display:flex;
   align-items:center;
   justify-content:space-between;
   gap:24px;
@@ -1012,15 +889,32 @@
 (function(){
   var banner = document.getElementById('cookie-banner');
   var btn = document.getElementById('cookie-ok');
-  if (!localStorage.getItem('kn_cookie_ok')) {
+  var accepted = false;
+  try { accepted = !!localStorage.getItem('kn_cookie_ok'); } catch (e) {}
+  if (!accepted) {
     banner.style.display = 'flex';
   }
   btn.addEventListener('click', function(){
-    localStorage.setItem('kn_cookie_ok', '1');
+    try { localStorage.setItem('kn_cookie_ok', '1'); } catch (e) {}
     banner.style.display = 'none';
   });
   btn.addEventListener('mouseover', function(){ btn.style.background = '#1a1a1a'; });
   btn.addEventListener('mouseout', function(){ btn.style.background = '#2a2724'; });
+})();
+</script>
+
+<!-- Netlify Identity: подхватывает ссылку-приглашение / сброс пароля и переводит в админку.
+     Скрипт грузится только когда в адресе есть токен, обычным посетителям он не мешает. -->
+<script>
+(function(){
+  if (!/(invite_token|recovery_token|confirmation_token|email_change_token|access_token)=/.test(location.hash)) return;
+  var s = document.createElement('script');
+  s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+  s.onload = function(){
+    window.netlifyIdentity.on('login', function(){ document.location.href = '/admin/'; });
+    window.netlifyIdentity.init();
+  };
+  document.head.appendChild(s);
 })();
 </script>
 

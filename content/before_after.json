@@ -1,0 +1,11 @@
+{
+  "title_line1": "до/",
+  "title_line2": "после",
+  "label_before": "до",
+  "label_after": "после",
+  "items": [
+    { "image": "images/before_after_1.jpg", "alt": "До и после — KeratinNow" },
+    { "image": "images/before_after_2.jpg", "alt": "До и после — KeratinNow" },
+    { "image": "images/before_after_3.jpg", "alt": "До и после — KeratinNow" }
+  ]
+}
